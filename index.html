@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SmartWrite AI Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, system-ui, sans-serif;
+      background: linear-gradient(135deg, #6366f1, #0ea5e9, #22c55e);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease;
+      margin-bottom: 20px;
+    }
+    .affiliate {
+      background: rgba(0,0,0,0.3);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 14px;
+      text-align: center;
+    }
+    .affiliate h3 {
+      margin: 5px 0;
+    }
+    .affiliate a {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #fff, #dbeafe);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    textarea {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      resize: none;
+    }
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #ffffff, #dbeafe);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .output {
+      margin-top: 15px;
+      background: rgba(255,255,255,0.15);
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      white-space: pre-wrap;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>✨ SmartWrite AI Tools</h1>
+    <p>Generate content + discover the best AI tools for creators</p>
+
+    <textarea id="input" rows="5" placeholder="Write a YouTube intro about AI tools..."></textarea>
+    <button onclick="generateText()">Generate</button>
+
+    <div id="output" class="output">Your AI-generated content will appear here...</div>
+
+    <!-- Affiliate Section -->
+    <div class="affiliate">
+      <h3>🔥 Recommended AI Writing Tool</h3>
+      <p>Use this tool to write faster and better content.</p>
+      <!-- REPLACE this link with your real affiliate link -->
+      <a href="https://example.com/your-affiliate-link" target="_blank">Try Tool for Free</a>
+    </div>
+
+    <div class="affiliate">
+      <h3>🎬 Best AI Video Tool</h3>
+      <p>Create videos easily with AI.</p>
+      <!-- REPLACE this link with your real affiliate link -->
+      <a href="https://example.com/your-affiliate-link-2" target="_blank">Start Creating Videos</a>
+    </div>
+
+    <div class="footer">This page contains affiliate links • Made by You ❤️</div>
+  </div>
+
+  <script>
+    function generateText() {
+      const input = document.getElementById('input').value.trim();
+      const output = document.getElementById('output');
+
+      if (!input) {
+        output.textContent = "Please write something first.";
+        return;
+      }
+
+      const templates = [
+        `🔥 Here's powerful content based on your idea:\n\n${input}\n\nUse AI tools below to make your content even better.`,
+        `✅ SmartWrite AI Result:\n\n${input}\n\nCheck the recommended tools below for faster results.`,
+        `🚀 High-Quality Output:\n\n${input}\n\nUse the tools below to turn this into real content.`
+      ];
+
+      const random = Math.floor(Math.random() * templates.length);
+      output.textContent = templates[random];
+    }
+  </script>
+
+</body>
+</html>
